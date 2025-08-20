@@ -219,24 +219,36 @@ function ProductList({ onHomeClick }) {
         }
     ];
     const styleObj = {
-        backgroundColor: '#4CAF50',
-        color: '#fff!important',
-        padding: '15px',
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(20px)',
+        color: '#2c3e50',
+        padding: '20px 15px',
         display: 'flex',
         justifyContent: 'space-between',
-        alignIems: 'center',
-        fontSize: '20px',
+        alignItems: 'center',
+        fontSize: '18px',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+        borderBottom: '1px solid rgba(102, 126, 234, 0.2)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000,
     }
     const styleObjUl = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '1100px',
+        width: 'auto',
+        gap: '40px',
     }
     const styleA = {
-        color: 'white',
-        fontSize: '30px',
+        color: '#2c3e50',
+        fontSize: '18px',
         textDecoration: 'none',
+        fontWeight: '600',
+        transition: 'all 0.3s ease',
+        padding: '10px 20px',
+        borderRadius: '25px',
+        background: 'rgba(102, 126, 234, 0.1)',
     }
 
     const handleHomeClick = (e) => {
@@ -284,26 +296,27 @@ function ProductList({ onHomeClick }) {
         <div>
             <div className="navbar" style={styleObj}>
                 <div className="tag">
-                    <div className="luxury">
-                        <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-                        <a href="/" onClick={(e) => handleHomeClick(e)}>
+                    <div className="luxury" style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=100&auto=format&fit=crop" 
+                             alt="Verdant Oasis Logo" 
+                             style={{width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover', boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'}} />
+                        <a href="/" onClick={(e) => handleHomeClick(e)} style={{textDecoration: 'none'}}>
                             <div>
-                                <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
-                                <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
+                                <h3 style={{ color: '#2c3e50', margin: '0 0 5px 0', fontSize: '24px', fontWeight: '700' }}>Verdant Oasis</h3>
+                                <i style={{ color: '#667eea', fontSize: '14px' }}>Transform Your Space with Nature</i>
                             </div>
                         </a>
                     </div>
-
                 </div>
                 <div style={styleObjUl}>
                     <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
-                    <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
-                        <h1 className='cart'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68">
+                    <div> <a href="#" onClick={(e) => handleCartClick(e)} style={{...styleA, position: 'relative'}}>
+                        <h1 className='cart' style={{margin: 0, fontSize: '24px'}}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="32" width="32">
                                 <rect width="156" height="156" fill="none"></rect>
                                 <circle cx="80" cy="216" r="12"></circle>
                                 <circle cx="184" cy="216" r="12"></circle>
-                                <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path>
+                                <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#667eea" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path>
                             </svg>
                             <span className="cart-count">{calculateTotalQuantity()}</span>
                         </h1>
